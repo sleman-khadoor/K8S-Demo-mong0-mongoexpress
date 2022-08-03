@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-db-internal-service
+  namespace: default
+spec:
+  selector:
+    app: mongodb
+#  type: ClusterIP
+#  sessionAffinity: None
+#  sessionAffinityConfig:
+#    clientIP:
+#      timeoutSeconds: 10800
+  ports:
+  - protocol: TCP
+    port: 27017
+    targetPort: 27017
+    # If you set the `spec.type` field to `NodePort` and you want a specific port number,
+    # you can specify a value in the `spec.ports[*].nodePort` field.
